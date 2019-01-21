@@ -28,7 +28,7 @@ public class DeliveryCost{
 
        public static void main(String[] args){
            Scanner scan=new Scanner(System.in);
-           System.out.println("Введите количество грузов");
+           System.out.println("Введите количество грузов:");
            int count=scan.nextInt();
            DeliveryCost[]array=new DeliveryCost[count];
            System.out.println("Введите все параметры груза");
