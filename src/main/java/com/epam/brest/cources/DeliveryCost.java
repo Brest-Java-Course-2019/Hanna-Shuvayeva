@@ -2,6 +2,7 @@ package com.epam.brest.cources;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 public class DeliveryCost implements ShippingCost_rate{
@@ -55,14 +56,15 @@ public class DeliveryCost implements ShippingCost_rate{
        @Override
        public double getShipCost_weight() {
            double cc=0;
-           if(getWeight()>2000 && getDistance()<=8000) {
-               cc=550 + getCost_1km();
+           if(getWeight()>=2000 && getDistance()<=8000) {
+               cc=550 + getShipCost_1km();
            }
            if(getWeight()>8000) {
-               cc=850 + getCost_1km();
+               cc=850 + getShipCost_1km();
            }
         return cc;
        }
+
 
     public void info(){
            System.out.println("Shipping name-"+getName()+", distance to storage warehouse- "+getDistance()+" meters, cargo weight- "+getWeight()+" kg, transportation cost per 1 km - "+getShipCost_1km()+" dollars");
@@ -81,9 +83,6 @@ public class DeliveryCost implements ShippingCost_rate{
                array[i].cost_1km = scan.nextDouble();
                array[i].weight = scan.nextDouble();
            }
-           for(int i=0; i<count; i++){
-               array[i].info();
-           }
            File file=new File("my_file1.txt");
            try {
                file.createNewFile();
@@ -94,60 +93,43 @@ public class DeliveryCost implements ShippingCost_rate{
            File dir = new File("my_file1.txt");
            dir.mkdir();
            System.out.println(dir.isDirectory());
-               for(int i=0; i<count; i++){
-                   if(array[i].weight>=1000){
-                       try {
-                           String str;
-                           str = Double.toString(array[i].getShipCost_weight());
-                           FileWriter fileWriter = new FileWriter(file, true);
-                           fileWriter.write(str);
-                           fileWriter.append('\n');
-                           fileWriter.close();
-                       } catch (IOException ex) {
-                           System.out.println(ex);
-                       }
+           for(int i=0; i<count; i++){
+               if(array[i].weight>=2000){
+                   try {
+                       String str;
+                       str = Double.toString(array[i].getShipCost_weight());
+                       FileWriter fileWriter = new FileWriter(file, true);
+                       fileWriter.write("Cost for 1 km:");
+                       fileWriter.write(str);
+                       fileWriter.append('\n');
+                       fileWriter.close();
+                   } catch (IOException ex) {
+                       System.out.println(ex);
                    }
                }
-           //try{
-               //FileInputStream fstream = new FileInputStream("D://my_file1");
-               //BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
-               //String strLine;
-               //if(array[i].weight>=1000) {
-                   //System.out.println("Цена груза "+br.readLine());
-               //}
-               //fstream.close();
-          // }catch (IOException e){
-              // System.out.println(ex);
-           //}
+           }
+           for(int i=0; i<count; i++){
+               array[i].info();
+               if(array[i].weight>=2000){
+                   System.out.println("if the mass is from 2000 to 8000 or more than 8000, " +
+                           "then an adjustment is made for the cost of transporting the cargo for 1 km");
+
+                   try(FileReader reader = new FileReader("my_file1.txt"))
+                   {
+                       int c;
+                       while((c=reader.read())!=-1){
+                           System.out.print((char)c);
+                       }
+                   }
+                   catch(IOException ex){
+
+                       System.out.println(ex.getMessage());
+                   }
+               }
+           }
 
 
-           //try {
-               //FileReader fileReader = new FileReader(file);
-               //Scanner scan=new Scanner(System.in);
-               ////int c;
-               //while ( (c = fileReader.read()) != -1){
-                   //System.out.print((char) c);}
-              // fileReader.close();
-           //} catch (FileNotFoundException ex) {
-               //System.out.println("ex");
-          // } catch (IOException ex) {
-               //Logger.getLogger(AnnaShuvaevaJava8.class.getName()).log(Level.SEVERE, null, ex);
-           //}
 
-// FileReader fileReader;
-// try {
-// fileReader = new FileReader(file);
-// Scanner scanner = new Scanner(fileReader);
-// int i = 0;
-// while(scanner.hasNext()) {
-// System.out.println(i++ + scanner.nextLine());
-// }
-// fileReader.close();
-// } catch (FileNotFoundException ex) {
-// Logger.getLogger(AnnaShuvaevaJava8.class.getName()).log(Level.SEVERE, null, ex);
-// } catch (IOException ex) {
-// Logger.getLogger(AnnaShuvaevaJava8.class.getName()).log(Level.SEVERE, null, ex);
-// }
        }
 
 
