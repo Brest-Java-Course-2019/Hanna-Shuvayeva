@@ -4,40 +4,82 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-
-public class DeliveryCost{
+public class DeliveryCost implements ShippingCost_rate{
        private String name;
-       private int distance;
-       private int weight;
-       private int cost;
+       private double distance;
+       private double weight;
+       private double cost_1km;
+
        public String getName(){
            return name;
        }
-       public int getDistance(){
+       public double getDistance(){
            return distance;
        }
-       public int getWeight(){
+       public double getWeight(){
            return weight;
        }
-       public int getCost(){
-           return cost;
+       public double getCost_1km(){
+           return cost_1km;
        }
-       public void info(){
-           System.out.println("Наименование груза-"+getName()+", расстояние до склада хранения- "+getDistance()+" метров, масса груза- "+getWeight()+" кг, цена груза - "+getCost()+" рублей");
+       @Override
+       public double getRate_1() {
+            return 1.2;
+       }
+       @Override
+       public double getRate_2() {
+            return 1.3;
+       }
+       @Override
+       public double getRate_3() {
+           return 1.4;
+       }
+       @Override
+       public double getShipCost_1km() {
+           double c = 0;
+           if (getDistance() > 1000 && getDistance()<=5000) {
+               c = getRate_1() * getCost_1km();
+           }
+           if (getDistance() > 5000 && getDistance()<=7000) {
+               c = getRate_2() * getCost_1km();
+           }
+           if (getDistance() > 7000) {
+               c = getRate_3() * getCost_1km();
+           }
+           if(getDistance() < 1000){
+               c=getCost_1km();
+           }
+           return c;
+       }
+
+       @Override
+       public double getShipCost_weight() {
+           double cc=0;
+           if(getWeight()>2000 && getDistance()<=8000) {
+               cc=550 + getCost_1km();
+           }
+           if(getWeight()>8000) {
+               cc=850 + getCost_1km();
+           }
+        return cc;
+       }
+
+    public void info(){
+           System.out.println("Shipping name-"+getName()+", distance to storage warehouse- "+getDistance()+" meters, cargo weight- "+getWeight()+" kg, transportation cost per 1 km - "+getShipCost_1km()+" dollars");
        }
 
        public static void main(String[] args){
            Scanner scan=new Scanner(System.in);
-           System.out.println("Введите количество грузов:");
+           System.out.println("Amount of cargo");
            int count=scan.nextInt();
            DeliveryCost[]array=new DeliveryCost[count];
-           System.out.println("Введите все параметры груза");
+           System.out.println("Cargo Information:");
            for(int i=0; i<count; i++){
                array[i]=new DeliveryCost();
                array[i].name = scan.next();
-               array[i].distance = scan.nextInt();
-               array[i].cost = scan.nextInt();
-               array[i].weight = scan.nextInt();
+               array[i].distance = scan.nextDouble();
+               array[i].cost_1km = scan.nextDouble();
+               array[i].weight = scan.nextDouble();
            }
            for(int i=0; i<count; i++){
                array[i].info();
@@ -49,15 +91,16 @@ public class DeliveryCost{
                System.out.println(ex);
            }
            System.out.println(file.isFile() + "\n" + file.getAbsolutePath());
-           File dir = new File("D://my_file1");
+           File dir = new File("my_file1.txt");
            dir.mkdir();
            System.out.println(dir.isDirectory());
                for(int i=0; i<count; i++){
                    if(array[i].weight>=1000){
                        try {
-                           array[i].cost=52000;
+                           String str;
+                           str = Double.toString(array[i].getShipCost_weight());
                            FileWriter fileWriter = new FileWriter(file, true);
-                           //fileWriter.write(t);
+                           fileWriter.write(str);
                            fileWriter.append('\n');
                            fileWriter.close();
                        } catch (IOException ex) {
@@ -107,4 +150,5 @@ public class DeliveryCost{
 // }
        }
 
-       }
+
+}
