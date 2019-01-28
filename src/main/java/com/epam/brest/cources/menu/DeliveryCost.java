@@ -1,16 +1,21 @@
-package com.epam.brest.cources;
+package com.epam.brest.cources.menu;
+
+import com.epam.brest.cources.menu.ShippingCost_rate;
+import com.epam.brest.cources.calc.Calc;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-public class DeliveryCost implements ShippingCost_rate{
-       private String name;
+public class DeliveryCost implements ShippingCost_rate, Calc {
+       private  String name;
        private double distance;
        private double weight;
        private double cost_1km;
-
+       private static final Logger LOGGER = LogManager.getLogger();
        public String getName(){
            return name;
        }
@@ -50,6 +55,9 @@ public class DeliveryCost implements ShippingCost_rate{
            if(getDistance() < 1000){
                c=getCost_1km();
            }
+           if(getDistance()==0||getDistance()<0){
+               System.out.println("Input Error");
+           }
            return c;
        }
 
@@ -61,6 +69,9 @@ public class DeliveryCost implements ShippingCost_rate{
            }
            if(getWeight()>8000) {
                cc=850 + getShipCost_1km();
+           }
+           if(getWeight()==0||getWeight()<0){
+               System.out.println("Input Error");
            }
         return cc;
        }
@@ -82,6 +93,10 @@ public class DeliveryCost implements ShippingCost_rate{
                array[i].distance = scan.nextDouble();
                array[i].cost_1km = scan.nextDouble();
                array[i].weight = scan.nextDouble();
+           }
+           for(int i=0; i<count; i++){
+               array[i].info();
+               LOGGER.info("Cargo Information:: ", array[i]);
            }
            File file=new File("my_file1.txt");
            try {
@@ -121,7 +136,7 @@ public class DeliveryCost implements ShippingCost_rate{
                            System.out.print((char)c);
                        }
                    }
-                   catch(IOException ex){
+                  catch(IOException ex){
 
                        System.out.println(ex.getMessage());
                    }
