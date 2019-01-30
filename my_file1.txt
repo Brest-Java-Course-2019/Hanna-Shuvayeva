@@ -1,1 +1,2 @@
-Cost for 1 km:610.0
+Cost for 1 km:10150.0
+Cost for 1 km:1674.6

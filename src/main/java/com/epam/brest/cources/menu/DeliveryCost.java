@@ -1,6 +1,6 @@
 package com.epam.brest.cources.menu;
 
-import com.epam.brest.cources.menu.ShippingCost_rate;
+
 import com.epam.brest.cources.calc.Calc;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
