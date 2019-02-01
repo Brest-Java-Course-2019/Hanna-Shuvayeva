@@ -29,6 +29,25 @@ class DeliveryCostTest {
         String actual =String.valueOf(1.4);
         Assert.assertEquals(actual, expected);
     }
-
+    @Test
+    void getShipCost_1km(){
+        DeliveryCost ob=new DeliveryCost();
+        String expected=String.valueOf(ob.getDistance());
+        String actual =String.valueOf(0.0);
+        Assert.assertEquals(actual, expected);
+    }
+    @Test
+    void getShipCost_weight(){
+        DeliveryCost ob=new DeliveryCost();
+        String expected=String.valueOf(ob.getWeight());
+        String actual =String.valueOf(0.0);
+        Assert.assertEquals(actual, expected);
+    }
+    @Test
+    void info(){
+        DeliveryCost ob=new DeliveryCost();
+        String x=ob.info();
+        Assert.assertTrue("null",true);
+    }
 
 }
