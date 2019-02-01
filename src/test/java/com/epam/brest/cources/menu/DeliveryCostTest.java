@@ -1,6 +1,5 @@
 package com.epam.brest.cources.menu;
 
-//import com.epam.brest.cources.menu.DeliveryCost;
 import org.junit.jupiter.api.Test;
 import org.junit.Assert;
 
@@ -45,9 +44,34 @@ class DeliveryCostTest {
     }
     @Test
     void info(){
-        DeliveryCost ob=new DeliveryCost();
-        String x=ob.info();
         Assert.assertTrue("null",true);
+        Assert.assertFalse("tyr",false);
+    }
+    @Test
+    void getName(){
+        Assert.assertTrue("null",true);
+        Assert.assertFalse("tyr",false);
+    }
+    @Test
+    void getDistance(){
+        DeliveryCost ob=new DeliveryCost();
+        String expected=String.valueOf(ob.getDistance());
+        String actual =String.valueOf(0.0);
+        Assert.assertEquals(actual, expected);
+    }
+    @Test
+    void getWeight(){
+        DeliveryCost ob=new DeliveryCost();
+        String expected=String.valueOf(ob.getWeight());
+        String actual =String.valueOf(0.0);
+        Assert.assertEquals(actual, expected);
+    }
+    @Test
+    void getCost_1km(){
+        DeliveryCost ob=new DeliveryCost();
+        String expected=String.valueOf(ob.getCost_1km());
+        String actual =String.valueOf(0.0);
+        Assert.assertEquals(actual, expected);
     }
 
 }
