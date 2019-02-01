@@ -1,6 +1,5 @@
 package com.epam.brest.cources.menu;
 
-
 import com.epam.brest.cources.calc.Calc;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,7 +29,8 @@ public class DeliveryCost implements ShippingCost_rate, Calc {
        }
        @Override
        public double getRate_1() {
-            return 1.2;
+
+           return 1.2;
        }
        @Override
        public double getRate_2() {
@@ -64,7 +64,7 @@ public class DeliveryCost implements ShippingCost_rate, Calc {
        @Override
        public double getShipCost_weight() {
            double cc=0;
-           if(getWeight()>=2000 && getDistance()<=8000) {
+           if(getWeight()>=2000 && getWeight()<=8000) {
                cc=550 + getShipCost_1km();
            }
            if(getWeight()>8000) {
@@ -77,8 +77,9 @@ public class DeliveryCost implements ShippingCost_rate, Calc {
        }
 
 
-    public void info(){
+    public String info(){
            System.out.println("Shipping name-"+getName()+", distance to storage warehouse- "+getDistance()+" meters, cargo weight- "+getWeight()+" kg, transportation cost per 1 km - "+getShipCost_1km()+" dollars");
+           return getName();
        }
 
        public static void main(String[] args){
