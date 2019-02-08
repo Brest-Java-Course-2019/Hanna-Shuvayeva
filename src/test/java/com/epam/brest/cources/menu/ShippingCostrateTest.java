@@ -3,21 +3,17 @@ package com.epam.brest.cources.menu;
 import org.junit.jupiter.api.Test;
 import org.junit.Assert;
 
-class ShippingCost_rateTest {
+class ShippingCostrateTest {
     @Test
-    void getRate_1(){
+    void getRate1(){
         Assert.assertTrue("null",true);
         Assert.assertFalse("tyr",false);
     }
     @Test
-    void getRate_2(){
+    void getRate2(){
         Assert.assertTrue("null",true);
         Assert.assertFalse("tyr",false);
     }
-    @Test
-    void getRate_3(){
-        Assert.assertTrue("null",true);
-        Assert.assertFalse("tyr",false);
-    }
+
 
 }

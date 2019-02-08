@@ -5,12 +5,12 @@ import org.junit.Assert;
 
 class CalcTest {
     @Test
-    void getShipCost_1km(){
+    void getShipCost1km(){
         Assert.assertTrue("null",true);
         Assert.assertFalse("tyr",false);
     }
     @Test
-    void getShipCost_weight(){
+    void getShipCostweight(){
         Assert.assertTrue("null",true);
         Assert.assertFalse("tyr",false);
     }

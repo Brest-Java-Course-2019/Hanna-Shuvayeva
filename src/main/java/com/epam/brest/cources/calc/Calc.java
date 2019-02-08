@@ -1,6 +1,8 @@
 package com.epam.brest.cources.calc;
 
+import java.math.BigDecimal;
+
 public interface Calc {
-    double getShipCost_1km();
-    double getShipCost_weight();
+    BigDecimal getShipCost1km();
+    BigDecimal getShipCostweight();
 }
