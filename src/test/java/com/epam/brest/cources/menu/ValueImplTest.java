@@ -4,6 +4,10 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.Assert;
+
+import java.math.BigDecimal;
+
+
 class ValueImplTest {
     @BeforeAll
     static void beforeAll() {
@@ -12,26 +16,28 @@ class ValueImplTest {
 
     @Test
     void getWeight() {
-        Assert.assertTrue("null", true);
-        Assert.assertFalse("tyr", false);
-    }
-
-    @Test
-    void setWeight() {
-        Assert.assertTrue("null", true);
-        Assert.assertFalse("tyr", false);
+        ValueImpl ob=new ValueImpl();
+        Assert.assertNull(ob.getWeight());
     }
 
     @Test
     void getDistance() {
-        Assert.assertTrue("null", true);
-        Assert.assertFalse("tyr", false);
+        ValueImpl ob=new ValueImpl();
+        Assert.assertNull(ob.getWeight());
     }
-
     @Test
-    void setDistance() {
-        Assert.assertTrue("null", true);
-        Assert.assertFalse("tyr", false);
+    void getRate1(){
+        ValueImpl ob=new ValueImpl();
+        BigDecimal a = new BigDecimal(1.10);
+        BigDecimal actual= a.setScale(2, BigDecimal.ROUND_HALF_EVEN);
+        Assert.assertEquals(ob.getRate1(), actual);
+    }
+    @Test
+    void getRate2(){
+        ValueImpl ob=new ValueImpl();
+        BigDecimal a = new BigDecimal(1.20);
+        BigDecimal actual= a.setScale(2, BigDecimal.ROUND_HALF_EVEN);
+        Assert.assertEquals(ob.getRate2(), actual);
     }
 
     //@Test
