@@ -12,6 +12,9 @@ public class ValueImpl implements ShippingCostrate, Calc, Serializable {
         Files files=new Files();
         return this.cost1km=files.File();
     }
+    public void setCost1km() {
+        this.cost1km=cost1km;
+    }
     public BigDecimal getWeight() {
         return this.weight;
     }
