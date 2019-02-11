@@ -16,17 +16,20 @@ class ValueImplTest {
 
     @Test
     void getWeight() {
+        System.out.println("@Test 1");
         ValueImpl ob=new ValueImpl();
         Assert.assertNull(ob.getWeight());
     }
 
     @Test
     void getDistance() {
+        System.out.println("@Test 2");
         ValueImpl ob=new ValueImpl();
-        Assert.assertNull(ob.getWeight());
+        Assert.assertNull(ob.getDistance());
     }
     @Test
     void getRate1(){
+        System.out.println("@Test 3");
         ValueImpl ob=new ValueImpl();
         BigDecimal a = new BigDecimal(1.10);
         BigDecimal actual= a.setScale(2, BigDecimal.ROUND_HALF_EVEN);
@@ -34,31 +37,13 @@ class ValueImplTest {
     }
     @Test
     void getRate2(){
+        System.out.println("@Test 4");
         ValueImpl ob=new ValueImpl();
         BigDecimal a = new BigDecimal(1.20);
         BigDecimal actual= a.setScale(2, BigDecimal.ROUND_HALF_EVEN);
         Assert.assertEquals(ob.getRate2(), actual);
     }
 
-    //@Test
-    //void value() {
-    //}
-
-    //@Test
-    //void getShipCostweight() {
-    //}
-
-    //@Test
-    //void getShipCost1km() {
-    //}
-
-    //@Test
-    //void getRate2() {
-    //}
-
-    //@Test
-    //void getRate1() {
-    //}
     @AfterAll
     static void afterAll() {
         System.out.println("@AfterAll");
