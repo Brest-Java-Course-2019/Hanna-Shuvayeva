@@ -31,9 +31,8 @@ class ValueImplTest {
     void getRate1(){
         System.out.println("@Test 3");
         ValueImpl ob=new ValueImpl();
-        BigDecimal a = new BigDecimal(1.10);
-        BigDecimal actual= a.setScale(2, BigDecimal.ROUND_HALF_EVEN);
-        Assert.assertEquals(ob.getRate1(), actual);
+        BigDecimal a = new BigDecimal("1.10");
+        Assert.assertEquals(a, ob.getRate1());
     }
     @Test
     void getRate2(){

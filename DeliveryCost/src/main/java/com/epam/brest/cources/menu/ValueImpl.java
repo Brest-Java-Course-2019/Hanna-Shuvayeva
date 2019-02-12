@@ -1,20 +1,26 @@
 package com.epam.brest.cources.menu;
+
 import com.epam.brest.cources.File.Files;
 import com.epam.brest.cources.calc.Calc;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
+
 public class ValueImpl implements ShippingCostrate, Calc, Serializable {
+
     private BigDecimal weight;
     private BigDecimal distance;
     private BigDecimal cost1km;
 
     public BigDecimal getCost1km() {
-        Files files=new Files();
-        return this.cost1km=files.File();
+        Files files = new Files();
+        return this.cost1km = files.File();
     }
+
     public void setCost1km() {
-        this.cost1km=cost1km;
+        this.cost1km = cost1km;
     }
+
     public BigDecimal getWeight() {
         return this.weight;
     }
@@ -30,18 +36,20 @@ public class ValueImpl implements ShippingCostrate, Calc, Serializable {
     public void setDistance(BigDecimal distance) {
         this.distance = distance;
     }
-    public BigDecimal Value(){
+
+    public BigDecimal Value() {
         BigDecimal itemCost;
-        itemCost=getShipCostweight().add(getShipCost1km());
+        itemCost = getShipCostweight().add(getShipCost1km());
         return itemCost;
     }
+
     @Override
     public BigDecimal getShipCostweight() {
         BigDecimal itemCost = BigDecimal.ZERO;
         BigDecimal amont = new BigDecimal(550);
         int v = getWeight().compareTo(new BigDecimal("3000.00"));
         int vv = getWeight().compareTo(new BigDecimal("0.00"));
-        if((v == -1 || v == 0) && vv == 1)
+        if ((v == -1 || v == 0) && vv == 1)
             itemCost = amont.add(getCost1km());
         if (vv == 0 || vv == -1)
             System.out.println("Input Error");
@@ -61,6 +69,7 @@ public class ValueImpl implements ShippingCostrate, Calc, Serializable {
             System.out.println("Input Error");
         return itemCost;
     }
+
     @Override
     public BigDecimal getRate2() {
         return new BigDecimal("1.20");
