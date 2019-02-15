@@ -2,7 +2,7 @@ package com.epam.courses.hr.model;
 
 public class Department {
 
-    private Integer departmentId;
+    private Integer departmentId  ;
 
     private String departmentName;
 
