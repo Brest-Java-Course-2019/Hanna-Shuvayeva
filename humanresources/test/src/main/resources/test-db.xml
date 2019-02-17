@@ -15,4 +15,9 @@
         <property name="password" value=""/>
     </bean>
 
+    <jdbc:initialize-database>
+        <jdbc:script location="create-tables.sql"/>
+        <jdbc:script location="data-scrips.sql"/>
+    </jdbc:initialize-database>
+
 </beans>

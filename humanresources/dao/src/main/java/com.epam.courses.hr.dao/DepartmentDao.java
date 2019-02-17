@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 public interface DepartmentDao {
 
-    Stream<com.epam.courses.hr.model.Department> findAll();
+    Stream<Department> findAll();
     Optional<Department> findById(Integer departmentId);
 
 
