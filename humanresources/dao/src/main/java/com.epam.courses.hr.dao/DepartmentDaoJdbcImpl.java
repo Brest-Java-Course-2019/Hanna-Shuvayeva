@@ -1,5 +1,6 @@
 package com.epam.courses.hr.dao;
 
+import com.epam.courses.hr.Stub.DepartmentStub;
 import com.epam.courses.hr.model.Department;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +19,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public class DepartmentDaoJpaImpl implements DepartmentDao {
+public class DepartmentDaoJdbcImpl implements DepartmentDao {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentDaoJpaImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentDaoJdbcImpl.class);
 
     private static final String SELECT_ALL = "select departmentId, departmentName, departmentDescription from department";
     private static final String FIND_BY_ID = "select departmentId, departmentName, departmentDescription from department where departmentId = :departmentId";
@@ -31,10 +32,15 @@ public class DepartmentDaoJpaImpl implements DepartmentDao {
     private static final String DEPARTMENT_ID = "departmentId";
     private static final String DEPARTMENT_NAME = "departmentName";
     private static final String DEPARTMENT_DESCRIPTION = "departmentDescription";
+    public static final String SELECT_ALL_STUBS = "SELECT d.departmentId, d.departmentName, IFNULL (avg(e.salary),0) AS AvgSalary" +
+            " FROM department d " +
+            " LEFT JOIN employee e ON (d.departmentId = e.departmentId)" +
+            " GROUP BY d.departmentId, d.departmentName";
+    public static final String AVG_SALARY = "AvgSalary";
 
     final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    public DepartmentDaoJpaImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+    public DepartmentDaoJdbcImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 
@@ -42,6 +48,19 @@ public class DepartmentDaoJpaImpl implements DepartmentDao {
     public Stream<Department> findAll() {
         LOGGER.debug("findAll()");
         List<Department> departmentList = namedParameterJdbcTemplate.query(SELECT_ALL, new DepartmentRowMapper());
+        return departmentList.stream();
+    }
+
+    @Override
+    public Stream<DepartmentStub> findAllStubs() {
+        LOGGER.debug("findAllStubs()");
+        List<DepartmentStub> departmentList =
+                namedParameterJdbcTemplate
+                        .query(SELECT_ALL_STUBS,
+                                (resultSet, i) -> new DepartmentStub()
+                                        .id(resultSet.getInt(DEPARTMENT_ID))
+                                        .name(resultSet.getString(DEPARTMENT_NAME))
+                                        .avgSalary(resultSet.getInt(AVG_SALARY)));
         return departmentList.stream();
     }
 
@@ -59,6 +78,14 @@ public class DepartmentDaoJpaImpl implements DepartmentDao {
         LOGGER.debug("add({})", department);
         return Optional.of(department)
                 .filter(this::isNameUnique)
+                .map(this::insertDepartment)
+                .orElseThrow(() -> new IllegalArgumentException("Department with the same name already exsists in DB."));
+    }
+
+    @Override
+    public Optional<Department> addDepartment(Department department) {
+        LOGGER.debug("add({})", department);
+        return Optional.of(department)
                 .map(this::insertDepartment)
                 .orElseThrow(() -> new IllegalArgumentException("Department with the same name already exsists in DB."));
     }
