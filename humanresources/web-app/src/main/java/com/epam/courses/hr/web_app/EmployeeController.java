@@ -6,12 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class EmployeeController {
-    @GetMapping(value = "/")
-    public String defaultPAgeRedirect() {
-        return "redirect:employees";
-    }
 
-    @GetMapping(value = "/employee")
+
+    @GetMapping(value = "/employees")
     public String employees (Model model) {
         return "employees";
     }
