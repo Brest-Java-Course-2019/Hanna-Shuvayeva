@@ -27,5 +27,3 @@ For server test jetty plugin can be used
 Open [http://localhost:8080](http://localhost:8080/) 
 
 
-
-
