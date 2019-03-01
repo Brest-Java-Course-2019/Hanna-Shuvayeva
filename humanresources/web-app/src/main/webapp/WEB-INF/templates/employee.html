@@ -14,6 +14,10 @@
           href="../../resources/static/css/style.css"
           th:href="@{/resources/static/css/style.css}">
 
+    <link rel="shortcut icon" type="image/x-icon"
+          href="../../resources/static/img/logo.ico"
+          th:href="@{/resources/static/img/logo.ico}"/>
+
     <title>Edit employee</title>
 </head>
 <body>
@@ -27,8 +31,12 @@
                                           height="32" width="32"></a>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <a class="nav-item nav-link" href="departments.html">Departments</a>
-            <a class="nav-item nav-link active" href="employees.html">Employees</a>
+            <a class="nav-item nav-link"
+               href="departments.html"
+               th:href="@{/departments}">Departments</a>
+            <a class="nav-item nav-link active"
+               href="employees.html"
+               th:href="@{/employees}">Employees</a>
         </ul>
     </div>
 </nav>
@@ -41,12 +49,15 @@
             <li class="nav-item"
                 title="Back to list"
                 data-toggle="tooltip"
-                data-placement="bottom"><a href="employees.html" class="btn btn-light btn-block"><i
+                data-placement="bottom"><a href="employees.html"
+                                           th:href="@{/employees}"
+                                           class="btn btn-light btn-block"><i
                     class="fa fa-arrow-left"></i></a></li>
         </ul>
         <span class="navbar-brand text-uppercase mr-auto">Edit employee</span>
         <ul class="navbar-nav">
             <li class="nav-item"><a href="employees.html"
+                                    th:href="@{/employees}"
                                     class="btn btn-light"
                                     title="Save department"
                                     data-toggle="tooltip"

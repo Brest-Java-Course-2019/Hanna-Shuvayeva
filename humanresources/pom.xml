@@ -50,7 +50,17 @@
             </dependency>
             <dependency>
                 <groupId>com.epam.courses.hr</groupId>
+                <artifactId>service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.epam.courses.hr</groupId>
                 <artifactId>test-db</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.epam.courses.hr</groupId>
+                <artifactId>web-app</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -128,6 +138,12 @@
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
                 <version>${mockito.vertion}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-all</artifactId>
+                <version>1.3</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
