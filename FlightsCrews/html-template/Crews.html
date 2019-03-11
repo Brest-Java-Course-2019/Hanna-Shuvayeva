@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Crews List</title>
+</head>
+<body>
+<nav class="pl-2 navbar navbar-expand-lg navbar-dark bg-primary p-0">
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="index.html" class="navbar-brand"><img src="img/crew.svg" height="45" width="45"></a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <a class="nav-item nav-link " href="Flights.html">Flights</a>
+            <a class="nav-item nav-link active" href="Crews.html">Crews</a>
+        </ul>
+    </div>
+</nav>
+
+<header>
+    <nav id="main-header"
+         class="py-1 mb-3 navbar navbar-expand-sm navbar-light bg-light text-dark">
+
+        <span class="navbar-brand  mr-auto">Crews</span>
+        <ul class="navbar-nav float-right">
+            <li class="nav-item">
+                <a href="Crew.html"
+                   class="btn btn-light"
+                   title="Add"
+                   data-toggle="tooltip"
+                   data-placement="bottom">
+                    <i class="fa fa-plus"></i> <span
+                        class="d-none d-sm-inline">Add</span></a>
+            </li>
+        </ul>
+
+    </nav>
+</header>
+<section id="crews">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <table class="table table-striped">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th>Function</th>
+                            <th>Full name</th>
+                            <th>Crew number</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Pilot</td>
+                            <td>Ivanov S.V.</td>
+                            <td>1</td>
+                            <td class="text-right">
+                                <a href="Crew.html"
+                                   class="btn-sm btn-outline-secondary"
+                                   title="Edit"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-pencil"></i> <span
+                                        class="d-none d-md-inline">Edit</span></a>
+                                <span data-toggle="modal" data-target="#deleteDialog">
+                                <a href="#" class="btn-sm btn-outline-secondary"
+                                   title="Delete"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-trash-o fa-lg"></i> <span class="d-none d-md-inline">Delete</span></a>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pilot</td>
+                            <td>Sidorov A.V.</td>
+                            <td>2</td>
+                            <td class="text-right">
+                                <a href="Crew.html"
+                                   class="btn-sm btn-outline-secondary"
+                                   title="Edit"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-pencil"></i> <span
+                                        class="d-none d-md-inline">Edit</span></a>
+                                <span data-toggle="modal" data-target="#deleteDialog">
+                                <a href="#" class="btn-sm btn-outline-secondary"
+                                   title="Delete"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-trash-o fa-lg"></i> <span class="d-none d-md-inline">Delete</span></a>
+                                </span>
+                            </td>
+                        <tr>
+                            <td>Navigator</td>
+                            <td>Petrov A.N.</td>
+                            <td>1</td>
+                            <td class="text-right">
+                                <a href="Crew.html"
+                                   class="btn-sm btn-outline-secondary"
+                                   title="Edit"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-pencil"></i> <span
+                                        class="d-none d-md-inline">Edit</span></a>
+                                <span data-toggle="modal" data-target="#deleteDialog">
+                                <a href="#" class="btn-sm btn-outline-secondary"
+                                   title="Delete"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-trash-o fa-lg"></i> <span class="d-none d-md-inline">Delete</span></a>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Navigator</td>
+                            <td>Kozlov A.N.</td>
+                            <td>2</td>
+                            <td class="text-right">
+                                <a href="Crew.html"
+                                   class="btn-sm btn-outline-secondary"
+                                   title="Edit"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-pencil"></i> <span
+                                        class="d-none d-md-inline">Edit</span></a>
+                                <span data-toggle="modal" data-target="#deleteDialog">
+                                <a href="#" class="btn-sm btn-outline-secondary"
+                                   title="Delete"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-trash-o fa-lg"></i> <span class="d-none d-md-inline">Delete</span></a>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Stewardess</td>
+                            <td>Markova J.S.</td>
+                            <td>1</td>
+                            <td class="text-right">
+                                <a href="Crew.html"
+                                   class="btn-sm btn-outline-secondary"
+                                   title="Edit"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-pencil"></i> <span
+                                        class="d-none d-md-inline">Edit</span></a>
+                                <span data-toggle="modal" data-target="#deleteDialog">
+                                <a href="#" class="btn-sm btn-outline-secondary"
+                                   title="Delete"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-trash-o fa-lg"></i> <span class="d-none d-md-inline">Delete</span></a>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Stewardess</td>
+                            <td>Volkova J.S.</td>
+                            <td>1</td>
+                            <td class="text-right">
+                                <a href="Crew.html"
+                                   class="btn-sm btn-outline-secondary"
+                                   title="Edit"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-pencil"></i> <span
+                                        class="d-none d-md-inline">Edit</span></a>
+                                <span data-toggle="modal" data-target="#deleteDialog">
+                                <a href="#" class="btn-sm btn-outline-secondary"
+                                   title="Delete"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-trash-o fa-lg"></i> <span class="d-none d-md-inline">Delete</span></a>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Stewardess</td>
+                            <td>Volko J.S.</td>
+                            <td>2</td>
+                            <td class="text-right">
+                                <a href="Crew.html"
+                                   class="btn-sm btn-outline-secondary"
+                                   title="Edit"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-pencil"></i> <span
+                                        class="d-none d-md-inline">Edit</span></a>
+                                <span data-toggle="modal" data-target="#deleteDialog">
+                                <a href="#" class="btn-sm btn-outline-secondary"
+                                   title="Delete"
+                                   data-toggle="tooltip"
+                                   data-placement="top">
+                                    <i class="fa fa-trash-o fa-lg"></i> <span class="d-none d-md-inline">Delete</span></a>
+                                </span>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="deleteDialog" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header alert-danger">
+                <h5 class="modal-title" id="exampleModalLabel">Delete flight</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Please confirm delete
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+</body>
+</html>

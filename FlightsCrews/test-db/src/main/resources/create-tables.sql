@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS crew;
+CREATE TABLE crew (
+  crewId INT NOT NULL AUTO_INCREMENT,
+  functionName VARCHAR(50) NOT NULL,
+  fullName VARCHAR(200) NOT NULL,
+  crewNum INT NOT NULL,
+  PRIMARY KEY (crewId)
+);
+DROP TABLE IF EXISTS flight;
+CREATE TABLE flight (
+  flightId INT NOT NULL AUTO_INCREMENT,
+  flightName VARCHAR(200) NOT NULL UNIQUE,
+  crewNum INT NOT NULL,
+  departureDate DATE NOT NULL,
+  PRIMARY KEY (flightId)
+);
