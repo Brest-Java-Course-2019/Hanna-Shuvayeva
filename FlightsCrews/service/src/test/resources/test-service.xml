@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="flightDao" class="com.epam.courses.hr.dao.FlightDaoJdbcImpl">
+        <constructor-arg ref="namedParameterJdbcTemplate"/>
+    </bean>
+
+    <bean id="crewDao" class="com.epam.courses.hr.dao.CrewDaoJdbcImpl">
+        <constructor-arg ref="namedParameterJdbcTemplate"/>
+    </bean>
+
+    <bean id="flightService" class="com.epam.courses.hr.service.FlightServiceImpl">
+        <constructor-arg ref="flightDao"/>
+    </bean>
+
+    <bean id="crewService" class="com.epam.courses.hr.service.CrewServiceImpl">
+        <constructor-arg ref="crewDao"/>
+    </bean>
+
+</beans>
