@@ -7,6 +7,7 @@ INSERT INTO crew (crewId, functionName, fullName, crewNum) VALUES (5, 'stewardes
 INSERT INTO crew (crewId, functionName, fullName, crewNum) VALUES (6, 'stewardess', 'Volkova J.S.', 1);
 INSERT INTO crew (crewId, functionName, fullName, crewNum) VALUES (7, 'stewardess', 'Volko J.S.', 2);
 
+
 INSERT INTO flight (flightId, flightName, crewNum, departureDate) VALUES (1, 'Moscow-New York', 1, '2019-01-01');
 INSERT INTO flight (flightId, flightName, crewNum, departureDate) VALUES (2, 'Moscow-Minsk', 2, '2019-02-01');
 INSERT INTO flight (flightId, flightName, crewNum, departureDate) VALUES (3, 'Moscow-Kiev', 1, '2019-02-01');

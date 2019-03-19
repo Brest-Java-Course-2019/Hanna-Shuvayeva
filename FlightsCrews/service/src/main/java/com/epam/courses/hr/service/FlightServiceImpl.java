@@ -22,6 +22,7 @@ public class FlightServiceImpl implements FlightService{
         this.dao = dao;
     }
 
+
     @Override
     public Collection<Flight> findAll() {
         LOGGER.debug("Find all flights");

@@ -17,6 +17,7 @@ class CrewServiceImplTest {
 
     private static final Integer SIZE = 7;
 
+
     @Autowired
     private CrewService crewService;
 

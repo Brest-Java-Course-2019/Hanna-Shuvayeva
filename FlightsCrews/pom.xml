@@ -1,20 +1,22 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    
 
     <groupId>com.epam.courses.hr</groupId>
     <artifactId>flights-crews</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Aggregator for flights and crews project</name>
+    <name>Aggregator for flights-crews project</name>
 
     <modules>
         <module>model</module>
         <module>dao</module>
         <module>test-db</module>
-        <module>service-api</module>
         <module>service</module>
+        <module>service-api</module>
+        <module>web-app</module>
     </modules>
 
     <distributionManagement>
@@ -34,16 +36,10 @@
         <postgresql.version>42.2.5</postgresql.version>
         <logback.version>1.2.3</logback.version>
         <org.springframework.version>5.1.4.RELEASE</org.springframework.version>
-        <validation-api.version>2.0.1.Final</validation-api.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.epam.courses.hr</groupId>
-                <artifactId>service-api</artifactId>
-                <version>${project.version}</version>
-            </dependency>
             <dependency>
                 <groupId>com.epam.courses.hr</groupId>
                 <artifactId>model</artifactId>
@@ -106,27 +102,16 @@
                 <version>3.0.11.RELEASE</version>
             </dependency>
             <dependency>
-                <groupId>javax.validation</groupId>
-                <artifactId>validation-api</artifactId>
-                <version>${validation-api.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>4.0.0</version>
                 <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>2.9.8</version>
             </dependency>
 
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
                 <version>${org.springframework.version}</version>
-                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>com.h2database</groupId>
@@ -161,12 +146,6 @@
                 <groupId>org.hamcrest</groupId>
                 <artifactId>hamcrest-all</artifactId>
                 <version>1.3</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.jayway.jsonpath</groupId>
-                <artifactId>json-path</artifactId>
-                <version>2.0.0</version>
                 <scope>test</scope>
             </dependency>
             <dependency>

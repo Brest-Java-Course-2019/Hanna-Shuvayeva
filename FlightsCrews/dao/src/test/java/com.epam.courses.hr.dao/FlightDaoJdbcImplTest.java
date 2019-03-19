@@ -36,6 +36,7 @@ class FlightDaoJdbcImplTest {
     private static final int NEW_CREW_NUM = 2;
     private static final Integer NEW_CREW_NUM1 = 4;
 
+
     @Autowired
     private FlightDao flightDao;
 

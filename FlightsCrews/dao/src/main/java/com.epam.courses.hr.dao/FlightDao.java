@@ -9,6 +9,8 @@ import java.util.Collection;
 
 public interface FlightDao {
 
+
+
     Collection<Flight> findAll();
 
     Collection<FlightStub> findAllStubs();

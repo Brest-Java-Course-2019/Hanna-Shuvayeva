@@ -9,6 +9,7 @@ import java.util.Collection;
 
 public interface FlightService {
 
+
     Collection<Flight> findAll();
 
     Collection<FlightStub> findAllStubs();

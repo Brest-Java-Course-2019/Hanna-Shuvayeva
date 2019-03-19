@@ -5,6 +5,7 @@ import java.sql.Date;
 
 public class Interval {
 
+
     private Date dateFrom;
 
     private Date dateTo;

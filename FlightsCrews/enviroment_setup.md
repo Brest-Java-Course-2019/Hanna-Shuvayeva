@@ -4,6 +4,7 @@ Update packages
 
 Install OpenJDK 8
 
+
     ~$ sudo apt install openjdk-8-jdk   
    
 Verify

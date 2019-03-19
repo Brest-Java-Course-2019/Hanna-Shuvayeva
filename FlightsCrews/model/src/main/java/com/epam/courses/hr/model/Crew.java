@@ -2,7 +2,6 @@ package com.epam.courses.hr.model;
 
 public class Crew {
 
-
     private Integer crewId;
 
     private String functionName;
@@ -62,5 +61,6 @@ public class Crew {
                 ", crewNum=" + crewNum +
                 '}';
     }
+
 
 }

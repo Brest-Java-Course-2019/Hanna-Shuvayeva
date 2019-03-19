@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class FlightStub {
 
+
     private Integer flightStubId;
 
     private String flightStubName;

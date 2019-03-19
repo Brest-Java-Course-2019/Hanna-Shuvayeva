@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-
+import java.sql.Date;
+import java.text.ParseException;
 import java.util.Collection;
-
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,6 +20,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class FlightServiceImplTest {
 
     private static final Integer SIZE = 2;
+    private static final Date DATE_TO = Date.valueOf("2019-01-01");
+    private static final Date DATE_FROM = Date.valueOf("2019-01-01");
 
     @Autowired
     private FlightService flightService;
@@ -49,7 +51,9 @@ class FlightServiceImplTest {
     }
 
     @Test
-    void filteredFlightStubs() {
+    void filteredFlightStubs() throws ParseException {
+        Collection<FlightStub> flights = flightService.filteredFlightStubs(DATE_TO, DATE_FROM);
+        assertNotNull(flights);
 
     }
 

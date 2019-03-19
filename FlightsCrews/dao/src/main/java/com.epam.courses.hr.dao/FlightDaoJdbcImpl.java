@@ -26,6 +26,8 @@ import java.util.Collection;
 
 public class FlightDaoJdbcImpl implements FlightDao {
 
+
+
     private static final Logger LOGGER = LoggerFactory.getLogger(FlightDaoJdbcImpl.class);
     private static final String SELECT_ALL = "select flightId, flightName, crewNum, departureDate from flight";
     private static final String FIND_BY_ID = "select flightId, flightName, crewNum, departureDate from flight where flightId = :flightId";

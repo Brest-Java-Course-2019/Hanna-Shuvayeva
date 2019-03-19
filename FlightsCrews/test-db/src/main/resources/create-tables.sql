@@ -6,6 +6,7 @@ CREATE TABLE crew (
   crewNum INT NOT NULL,
   PRIMARY KEY (crewId)
 );
+
 DROP TABLE IF EXISTS flight;
 CREATE TABLE flight (
   flightId INT NOT NULL AUTO_INCREMENT,

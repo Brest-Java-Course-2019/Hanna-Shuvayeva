@@ -9,6 +9,7 @@ Flights and Crews demo application
 
 ## How build
 
+
 Setup java 8 and Maven, see [enviroment_setup.md](enviroment_setup.md) 
   
     
