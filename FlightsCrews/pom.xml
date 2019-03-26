@@ -13,10 +13,12 @@
     <modules>
         <module>model</module>
         <module>dao</module>
+        <module>dao-api</module>
         <module>test-db</module>
         <module>service</module>
         <module>service-api</module>
         <module>web-app</module>
+
     </modules>
 
     <distributionManagement>
